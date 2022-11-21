@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Başlıksız Belge</title>
+    <style>
+        td{
+            padding:.5rem;
+        }
+        body{
+            margin:0;
+            padding:0;
+        }
+    </style>
+</head>
+
+<body>
+
+    
+
+    <script>
+        var zz;
+        function tableCreate(row,col){
+            var ss=0;
+            let table=document.createElement("table");
+            table.setAttribute("border","0");
+            for(let x=0;x<row;x++){
+                var tr=document.createElement("tr");
+                for(let y=0;y<col;y++){
+                    var td=document.createElement("td");
+                    td.setAttribute("data-index",ss);
+                    ss++;
+                    tr.append(td);
+                    td.onmouseover=function(){
+                        this.style.backgroundColor="#"+(Math.floor(Math.random()*900)+100);
+                    }
+                    td.onmouseout=function(){
+                        let xyz=this;
+                        zz=setTimeout(function(){
+                            xyz.style.backgroundColor="white";
+                        },1000);
+                    }
+                }
+                table.append(tr);
+            }
+            document.querySelector("body").append(table);
+        }
+        tableCreate(50,200);
+    </script>
+</body>
+</html>
